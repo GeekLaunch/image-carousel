@@ -1,0 +1,72 @@
+.image-carousel {
+    width: 640px;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+
+    .inner {
+        display: flex;
+        position: absolute;
+        left: 0;
+        transition: left 0.25s ease-out;
+    }
+
+    .bubbles {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 5px;
+
+        .bubble {
+            margin: 2.5px;
+            background-color: white;
+            border-radius: 100000px;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            opacity: 0.25;
+            transition: opacity 0.1s linear;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.65;
+            }
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+
+    .next::after, .prev::after {
+        content: '>';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        background-color: white;
+        font-size: 20px;
+        width: 1em;
+        height: 3em;
+        font-weight: bold;
+        font-family: sans-serif;
+        transform: translateY(-50%);
+        line-height: 3em;
+        box-sizing: border-box;
+        padding: 0 0.2em;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.1s linear;
+    }
+
+    .next:hover::after, .prev:hover::after {
+        opacity: 1;
+    }
+
+    .prev::after {
+        content: '<';
+        left: 0;
+    }
+}
